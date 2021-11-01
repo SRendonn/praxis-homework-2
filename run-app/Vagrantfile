@@ -1,5 +1,4 @@
 Vagrant.configure("2") do |config|
-
   # Sync Folders. Everthing you put in the current direcory will be availabe inside the VM in the directory /vagrant.
   # Similarly, everything you put in the folder shared will be availabe inside de the VM in the directory /shared.
   config.vm.synced_folder ".", "/vagrant"
