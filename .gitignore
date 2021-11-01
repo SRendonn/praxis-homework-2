@@ -1,6 +1,6 @@
 **/.vagrant
 **/.env
-shared/dist
-shared/dist/*
+shared/spa
+shared/spa/*
 shared/server
 shared/server/*
