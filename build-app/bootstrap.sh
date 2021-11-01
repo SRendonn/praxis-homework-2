@@ -13,10 +13,12 @@ export PATH=$PATH:/usr/local/go/bin
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 # reload PATH
 source ~/.bash_profile
-# install node 14.x
+# install node lts
 nvm install --lts=fermium
 # install vue cli
-npm install -g @vue/cli
+npm install -g yarn
+
+yarn global add @vue/cli
 
 mkdir -p ~/app
 cd ~/app
@@ -29,7 +31,7 @@ sudo go build -o /shared/server
 # install vue app dependencies
 cd ~/app/spa
 # install vue cli globally and add eslint plugin to fix vue-cli-service bug
-npm install
+yarn install
 # build production app and move to shared directory
-npm run build
+yarn build
 sudo mv dist /shared/
