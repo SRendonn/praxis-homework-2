@@ -1,4 +1,6 @@
 **/.vagrant
 **/.env
-/shared/dist
-/shared/server
+shared/dist
+shared/dist/*
+shared/server
+shared/server/*
