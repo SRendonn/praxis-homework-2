@@ -27,7 +27,7 @@ git clone https://github.com/jdmendozaa/vuego-demoapp.git .
 # build go server
 cd /app/server
 mkdir -p /shared/server
-# in theory it should get the PORT and IPSTACK_API_KEY variables from the environment
+# TODO: FIND HOW TO MAKE GO APP TO LOAD ENV VARIABLES
 go build -o /shared/server
 
 cd /app/spa
@@ -40,7 +40,7 @@ yarn install
 # update dependencies
 yarn upgrade
 # get the VUE_APP_API_ENDPOINT from environment and write it to .env file
-echo $VUE_APP_API_ENDPOINT > .env
+echo "VUE_APP_API_ENDPOINT=$VUE_APP_API_ENDPOINT" > .env
 # build production app and move to shared directory
 yarn build
 # compress and move to shared directory
