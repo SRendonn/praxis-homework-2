@@ -1,5 +1,4 @@
 Vagrant.configure("2") do |config|
-  config.env.enable # enable vagrant-env plugin
   config.vm.box = "generic/centos7"
   # This is just to make the download a little bit faster. Ignore this. 
   config.vm.provider "virtualbox" do |v|
@@ -20,6 +19,6 @@ Vagrant.configure("2") do |config|
     inline: "sudo systemctl stop firewalld; sudo systemctl disable firewalld"
 
   # This runs the script you need to modify. 
-  config.vm.provision :shell, path: "bootstrap.sh", env: {"PORT" => "4001", "IPSTACK_API_KEY" => ENV['IPSTACK_API_KEY'], "VUE_APP_API_ENDPOINT" => ENV['VUE_APP_API_ENDPOINT'] }
+  config.vm.provision :shell, path: "bootstrap.sh", env: { "VUE_APP_API_ENDPOINT" => "http://10.0.0.8:4001/api" }
 
 end
