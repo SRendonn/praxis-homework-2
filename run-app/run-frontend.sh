@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-echo "Hello from frontend!"
+yum install nginx -y
 
+systemctl --now enable nginx

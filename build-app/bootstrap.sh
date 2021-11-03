@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
-# install git if not already installed
-yum install git -y
-
-# install Golang
-wget -O go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
-# extract tar ball
-tar -C /usr/local -xzf go.tar.gz
-# add folder to path
-export PATH=$PATH:/usr/local/go/bin
+# install git and golang if not already installed
+yum install git golang -y
 # download nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 # reload PATH
@@ -27,7 +20,6 @@ git clone https://github.com/jdmendozaa/vuego-demoapp.git .
 # build go server
 cd /app/server
 mkdir -p /shared/server
-# TODO: FIND HOW TO MAKE GO APP TO LOAD ENV VARIABLES
 go build -o /shared/server
 
 cd /app/spa
@@ -40,7 +32,7 @@ yarn install
 # update dependencies
 yarn upgrade
 # get the VUE_APP_API_ENDPOINT from environment and write it to .env file
-echo "VUE_APP_API_ENDPOINT=$VUE_APP_API_ENDPOINT" > .env
+echo "VUE_APP_API_ENDPOINT=$VUE_APP_API_ENDPOINT" > .env.production
 # build production app and move to shared directory
 yarn build
 # compress and move to shared directory
